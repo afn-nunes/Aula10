@@ -18,24 +18,23 @@ public class Motorista{
         return matricula;
     }
     public void setMatricula(String matricula) throws MatriculaInvalidaException {
-        if (matricula.matches("[0-9]*")) {
+        if (!matricula.matches("[0-9]*")) {
             throw new MatriculaInvalidaException(" A matricula deve ser um numero");
     
         } else if (matricula.length() != 4){
             throw new MatriculaInvalidaException(" A matricula deve conter 4 digitos");
-
         } else{
-            setMatricula(matricula);
+            this.matricula = matricula;
         }
     }
     public String getHabilitacao() {
         return habilitacao;
     }
     public void setHabilitacao(String habilitacao) throws HabilitacaoInvalidaException {
-        if (habilitacao.matches("[a-d]*")){
+        if (!habilitacao.toUpperCase().matches("[A-D]*")){
             throw new HabilitacaoInvalidaException("A Habilitação deve ser uma letra");
         } else{
-            setHabilitacao(habilitacao);
+            this.habilitacao = habilitacao;
         }
     }
     public Motorista(String nome) {
